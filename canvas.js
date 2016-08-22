@@ -123,8 +123,8 @@ function gameLoop() {
     checkPosition();
     
     ctx.font = "16px serif";
-    ctx.fillText(xPosition, 10, 20);
-    ctx.fillText(yPosition, 10, 40);
+    //ctx.fillText(xPosition, 10, 20);
+    //ctx.fillText(yPosition, 10, 40);
     
     ctx.fillText("Score: " + score, 420, 20);
 
