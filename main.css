@@ -1,6 +1,56 @@
+html {
+	font-family: 'Amatic SC', cursive;
+	text-align: center;
+	font-size: 6em;
+	background-color: #90caf9;
+}
+
+.start_screen {
+	font-weight: 900;
+	width: 500px;
+	height: 500px;
+	display: block;
+	margin: 0 auto;
+	padding: 5%;
+	background-color: #90caf9;
+}
+
+.description {
+	display: block;
+	font-size: 0.5em;
+	width: 75%;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.copyright {
+	font-size: .25em;
+	text-align: center;
+}
+
+button {
+	display: block;
+	margin: 0 auto;
+	margin-top: 50px;
+	width: 100px;
+	height: 40px;
+	background-color: #0d47a1;
+	border: 0;
+	border-radius: 4px;
+	color: white;
+	text-decoration: none;
+}
+
+button:hover {
+	background-color: #1565c0;
+}
+
 canvas {
+	background-color: white;
+	display: none;
+	position: relative;
+	z-index: -1;
     border: 1px solid #000;
-    display: block;
     margin: 0 auto;
     padding 5%;
 }

@@ -4,11 +4,26 @@
 
     <head>
         <title>Canvas Examples</title>
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="main.css">
     </head>
-    
+
     <body>
+    	<div id="start_screen" class="start_screen">
+    	Ring Game
+
+    	<div id="description" class="description">Keep the ball in the ring while it moves faster and the ring gets smaller!</div>
+
+    	<button onclick="start()"> Play</button>
+
+    	</div>
+
         <canvas id="myCanvas" width="500" height="500"></canvas>
+        
+        <span class="copyright"> 
+        	&copy; Sean Rayment. All Rights Reserved. 
+        </span>
+
         <script type="text/javascript" src="canvas.js"></script>
     </body>
 

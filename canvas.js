@@ -1,6 +1,9 @@
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 
+var start_screen = document.getElementById('start_screen');
+var description = document.getElementById('description');
+
 //Ring Variables
 var angle = 0;
 var increment = 0.1;
@@ -27,10 +30,33 @@ var xPosition;
 var yPosition;
 
 var score = 0;
-
-var canReset = true;
+var canReset = false;
+var gameInterval
 
 document.addEventListener("mousemove", mouseMoveHandler, false);
+
+function start() {
+    start_screen.style.display = "none";
+    canvas.style.display = "block";
+    gameInterval = setInterval(gameLoop, 20);
+}
+
+function gameLoop() {
+    
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    
+    ballPhysics();
+    drawBall();
+    drawRing();
+    checkPosition();
+    
+    ctx.font = "16px serif";
+    //ctx.fillText(xPosition, 10, 20);
+    //ctx.fillText(yPosition, 10, 40);
+    
+    ctx.fillText("Score: " + score, 420, 20);
+
+}
 
 function drawBall() {
     ctx.beginPath();
@@ -78,31 +104,45 @@ function checkPosition() {
             
             angle += increment;
             
-            
+    //has the outer ring completed 360 degrees      
     if (angle >= Math.PI * 2) {
         angle = 0;
+
+        //decrease the size of the ring
         innerRadius -= 5;
         radius -= 5;
+
+        //increase the speed of the ball
         dx *= 1.03;
         dy *= 1.03;
         score += 10;
         canReset = true;
+
+        //randomizes the color
         RED = Math.floor(Math.random() * (255));
         GREEN = Math.floor(Math.random() * (255));
         BLUE = Math.floor(Math.random() * (255));
+
+        //increases the increment so the game plays faster
         incremenet += .1;
-        alert("Your score was " + score);
     }
-        
+    
+    //if the ball is not within the circle
     }else {
+        //resets the ring variables
         radius = 200
         innerRadius = radius - 8;
-        score = 0;
         
+        //WHEN THE GAME ENDS
         if (canReset) {
             dx = 5;
             dy = -4;
+            canvas.style.display = "none";
+            start_screen.style.display = "block";
+            description.innerHTML = "Your score was: "+score;
             canReset = false;
+            score = 0;
+            clearInterval(gameInterval);
         }
     }
         //}else {
@@ -111,23 +151,6 @@ function checkPosition() {
         
     //} 
     
-}
-
-function gameLoop() {
-    
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    
-    ballPhysics();
-    drawBall();
-    drawRing();
-    checkPosition();
-    
-    ctx.font = "16px serif";
-    //ctx.fillText(xPosition, 10, 20);
-    //ctx.fillText(yPosition, 10, 40);
-    
-    ctx.fillText("Score: " + score, 420, 20);
-
 }
 
 function mouseMoveHandler(e) {
@@ -144,5 +167,3 @@ function mouseMoveHandler(e) {
     }
     
 }
-
-setInterval(gameLoop, 20);
