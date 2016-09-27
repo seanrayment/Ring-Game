@@ -9,8 +9,8 @@ var description = document.getElementById('description');
 var angle = 0;
 var increment = 0.1;
 var width = 2;
-var radius = 200;
-var startingX = canvas.width/ 2;
+var radius = canvas.width / 4;
+var startingX = canvas.width / 2;
 var startingY = canvas.height / 2;
 
 //Inner Ring Variables
@@ -34,11 +34,10 @@ var score = 0;
 var canReset = false;
 var gameInterval
 
-document.addEventListener("mousemove", mouseMoveHandler, false);
-
 
 //the onclick function called on the start button
 function start() {
+
     start_screen.style.display = "none";
     canvas.style.display = "block";
 
@@ -53,6 +52,8 @@ function start() {
         startingY = e.touches[0].clientY;
         e.preventDefault();
     })
+
+    document.addEventListener("mousemove", mouseMoveHandler, false);
 
     canvas.onwheel = function(e) {
         e.preventDefault();
@@ -183,10 +184,8 @@ function checkPosition() {
 }
 
 //moves the ring position to be centered on the mouse
+
 function mouseMoveHandler(e) {
-    
-    xPosition = e.clientX;
-    yPosition = e.clientY;
     
     if (e.clientX >= canvas.offsetLeft && e.clientX <= canvas.width + canvas.offsetLeft) {
         startingX = e.clientX - canvas.offsetLeft;
@@ -196,4 +195,5 @@ function mouseMoveHandler(e) {
         startingY = e.clientY - canvas.offsetTop;
     }
 }
+
 

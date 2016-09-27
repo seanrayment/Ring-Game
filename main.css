@@ -46,11 +46,11 @@ button:hover {
 }
 
 canvas {
+	height: 500px;
+	width: 500px;
 	background-color: white;
 	display: none;
 	position: relative;
     border: 1px solid #000;
     margin: 0 auto;
-    width: 100%;
-    height: auto;
 }
