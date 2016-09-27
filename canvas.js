@@ -47,8 +47,6 @@ function start() {
         startingY = e.touches[0].clientY;
     });
 
-    
-
     gameInterval = setInterval(gameLoop, 20);
 
 
@@ -186,10 +184,5 @@ function mouseMoveHandler(e) {
     if (e.clientY > 0 && e.clientY < canvas.height) {
         startingY = e.clientY - canvas.offsetTop;
     }
-}
-
-function touchEvents(element) {
-    element.addEventListener('touchstart', function(e));
-
 }
 
