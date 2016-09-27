@@ -52,6 +52,10 @@ function start() {
         startingY = e.touches[0].clientY;
     })
 
+    canvas.onwheel = function(e) {
+        e.preventDefault();
+    }
+
     gameInterval = setInterval(gameLoop, 20);
 
 
