@@ -41,7 +41,17 @@ document.addEventListener("mousemove", mouseMoveHandler, false);
 function start() {
     start_screen.style.display = "none";
     canvas.style.display = "block";
+
+    canvas.addEventListener('touchstart', function(e) {
+        startingX = e.touches[0].clientX;
+        startingY = e.touches[0].clientY;
+    });
+    
+    canvas.addEventListener('touchmove', );
+
     gameInterval = setInterval(gameLoop, 20);
+
+
 }
 
 //gameloop calls most other functions each frame
@@ -176,5 +186,10 @@ function mouseMoveHandler(e) {
     if (e.clientY > 0 && e.clientY < canvas.height) {
         startingY = e.clientY - canvas.offsetTop;
     }
-    
 }
+
+function touchEvents(element) {
+    element.addEventListener('touchstart', function(e));
+
+}
+
