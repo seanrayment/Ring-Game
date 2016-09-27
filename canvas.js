@@ -1,6 +1,7 @@
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 
+//Getting DOM elements to edit later on
 var start_screen = document.getElementById('start_screen');
 var description = document.getElementById('description');
 
@@ -35,12 +36,15 @@ var gameInterval
 
 document.addEventListener("mousemove", mouseMoveHandler, false);
 
+
+//the onclick function called on the start button
 function start() {
     start_screen.style.display = "none";
     canvas.style.display = "block";
     gameInterval = setInterval(gameLoop, 20);
 }
 
+//gameloop calls most other functions each frame
 function gameLoop() {
     
     ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -58,6 +62,7 @@ function gameLoop() {
 
 }
 
+//draws the ball to the screen at its position
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
@@ -66,6 +71,7 @@ function drawBall() {
     ctx.closePath();
 }
 
+//bounces of the sides
 function ballPhysics() {
     if ((x + dx) > (canvas.width - ballRadius) || (x + dx) < ballRadius) {
        dx = -dx 
@@ -79,6 +85,7 @@ function ballPhysics() {
     
 }
 
+//redraws the ring with the updated radius
 function drawRing() {
     ctx.beginPath();
     ctx.arc(startingX, startingY, innerRadius, 0, Math.PI*2);
@@ -91,6 +98,9 @@ function drawRing() {
     ctx.stroke();
 }
 
+//checks if ball is in the ring
+//if it is check to see if ring is complete
+//else game is over
 function checkPosition() {
     //if (angle <= Math.PI * 2) {
         
@@ -153,6 +163,7 @@ function checkPosition() {
     
 }
 
+//moves the ring position to be centered on the mouse
 function mouseMoveHandler(e) {
     
     xPosition = e.clientX;
