@@ -1,11 +1,11 @@
 html {
 	font-family: 'Amatic SC', cursive;
 	text-align: center;
-	font-size: 6em;
 	background-color: #90caf9;
 }
 
 .start_screen {
+	font-size: 8em;
 	font-weight: 900;
 	width: 100%;
 	height: auto;
@@ -15,17 +15,20 @@ html {
 }
 
 .description {
+	font-size: .45em;
 	display: block;
-	font-size: 0.5em;
-	width: 75%;
-	max-width: 400px;
+	width: 80%;
+	max-width: 600px;
 	margin: 0 auto;
 	margin-top: 30px;
 }
 
 .copyright {
-	font-size: .25em;
-	text-align: center;
+	display: block;
+	margin: 0 auto;
+	margin-top: 5%;
+	font-size: 2em;
+	
 }
 
 button {
@@ -46,11 +49,32 @@ button:hover {
 }
 
 canvas {
-	height: 500px;
-	width: 500px;
 	background-color: white;
 	display: none;
 	position: relative;
     border: 1px solid #000;
     margin: 0 auto;
+}
+
+@media only screen and (max-width: 699px) {
+
+	.start_screen {
+		font-size: 6em;
+	}
+
+	.copyright {
+		font-size: 1.5em;
+	}
+}
+
+@media only screen and (max-width: 499px) {
+	
+	.start_screen {
+		font-size: 4em;
+	}
+
+	.copyright {
+		font-size: 1em;
+	}
+
 }

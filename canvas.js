@@ -7,9 +7,9 @@ var description = document.getElementById('description');
 
 //Ring Variables
 var angle = 0;
-var increment = 0.1;
+var increment = 0.15;
 var width = 2;
-var radius = canvas.width / 4;
+var radius = canvas.width / 2.7;
 var startingX = canvas.width / 2;
 var startingY = canvas.height / 2;
 
@@ -42,14 +42,14 @@ function start() {
     canvas.style.display = "block";
 
     canvas.addEventListener('touchstart', function(e) {
-        startingX = e.touches[0].clientX;
-        startingY = e.touches[0].clientY;
+        startingX = e.touches[0].clientX - canvas.offsetLeft;
+        startingY = e.touches[0].clientY - canvas.offsetTop;
         e.preventDefault();
     });
 
     canvas.addEventListener('touchmove', function(e) {
-        startingX = e.touches[0].clientX;
-        startingY = e.touches[0].clientY;
+        startingX = e.touches[0].clientX - canvas.offsetLeft;
+        startingY = e.touches[0].clientY - canvas.offsetTop;
         e.preventDefault();
     })
 
@@ -139,8 +139,8 @@ function checkPosition() {
         angle = 0;
 
         //decrease the size of the ring
-        innerRadius -= 5;
-        radius -= 5;
+        innerRadius -= .05 * radius;
+        radius -= .05 * radius;
 
         //increase the speed of the ball
         dx *= 1.03;
@@ -160,7 +160,7 @@ function checkPosition() {
     //if the ball is not within the circle
     }else {
         //resets the ring variables
-        radius = 200
+        radius = canvas.width / 2.7
         innerRadius = radius - 8;
         
         //WHEN THE GAME ENDS
