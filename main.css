@@ -51,5 +51,6 @@ canvas {
 	position: relative;
     border: 1px solid #000;
     margin: 0 auto;
-    padding 5%;
+    width: 100%;
+    height: auto;
 }

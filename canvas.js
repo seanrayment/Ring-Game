@@ -45,11 +45,13 @@ function start() {
     canvas.addEventListener('touchstart', function(e) {
         startingX = e.touches[0].clientX;
         startingY = e.touches[0].clientY;
+        e.preventDefault();
     });
 
     canvas.addEventListener('touchmove', function(e) {
         startingX = e.touches[0].clientX;
         startingY = e.touches[0].clientY;
+        e.preventDefault();
     })
 
     canvas.onwheel = function(e) {
