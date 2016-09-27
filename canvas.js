@@ -46,8 +46,8 @@ function start() {
         startingX = e.touches[0].clientX;
         startingY = e.touches[0].clientY;
     });
+
     
-    canvas.addEventListener('touchmove', );
 
     gameInterval = setInterval(gameLoop, 20);
 
